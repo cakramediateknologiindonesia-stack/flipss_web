@@ -127,7 +127,7 @@ export function VideoPlayer({ content, activeEpisode }: VideoPlayerProps) {
             </h1>
           </div>
         </div>
-        <Badge variant="red">4K HDR</Badge>
+        <Badge variant="red">1080p HD</Badge>
       </div>
 
       {/* Center Play Button when Paused */}

@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { Search, Crown, LogOut, Menu, X, Bookmark, User } from "lucide-react";
@@ -31,6 +31,14 @@ export function Navbar() {
   const [searchOpen, setSearchOpen] = useState(false);
   const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const searchInputRef = useRef<HTMLInputElement>(null);
+
+  useEffect(() => {
+    if (searchOpen) {
+      const id = requestAnimationFrame(() => searchInputRef.current?.focus());
+      return () => cancelAnimationFrame(id);
+    }
+  }, [searchOpen]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -50,7 +58,7 @@ export function Navbar() {
       <div
         aria-hidden="true"
         data-scrolled={scrolled}
-        className="flips-navbar-bg pointer-events-none absolute inset-0 bg-[#0a0a0a]/92 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.6)]"
+        className="flips-navbar-bg pointer-events-none absolute inset-0 bg-[#0a0a0a]/92 backdrop-blur-xl border-b border-[#0a0a0a]/92 shadow-[0_8px_32px_rgba(0,0,0,0.6)]"
       />
       <div className="relative mx-auto flex h-16 md:h-20 max-w-[1440px] items-center justify-between px-4 sm:px-8 lg:px-12">
         {/* Left: Brand + Nav */}
@@ -112,40 +120,71 @@ export function Navbar() {
 
           {/* Desktop: Expandable Search */}
           <div className="relative hidden sm:flex items-center">
-            {searchOpen ? (
-              <div className="flex items-center rounded-full bg-black/80 border border-white/25 px-3 py-1.5 focus-within:border-[#E50914]">
-                <Search className="h-4 w-4 text-neutral-400 mr-2 shrink-0" />
-                <input
-                  type="search"
-                  value={searchQuery}
-                  onChange={(e) => setSearchQuery(e.target.value)}
-                  placeholder="Titles, genres..."
-                  aria-label="Search movies and series"
-                  autoFocus
-                  className="w-52 bg-transparent text-sm text-white placeholder-neutral-500 outline-none"
-                />
-                <button
-                  type="button"
-                  onClick={() => {
-                    setSearchQuery("");
-                    setSearchOpen(false);
-                  }}
-                  aria-label="Close search"
-                  className="ml-1 text-neutral-400 hover:text-white cursor-pointer"
-                >
-                  <X className="h-4 w-4" />
-                </button>
-              </div>
-            ) : (
+            <div
+              className={`flex h-9 items-center overflow-hidden rounded-full border transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                searchOpen
+                  ? "w-64 border-white/25 bg-black/80 px-3 focus-within:border-[#E50914] shadow-[0_0_20px_rgba(0,0,0,0.4)]"
+                  : "w-9 border-transparent bg-transparent hover:bg-white/10"
+              }`}
+            >
               <button
                 type="button"
-                onClick={() => setSearchOpen(true)}
+                onClick={() => {
+                  if (!searchOpen) {
+                    setSearchOpen(true);
+                  } else {
+                    searchInputRef.current?.focus();
+                  }
+                }}
                 aria-label="Search catalog"
-                className="flex h-9 w-9 items-center justify-center rounded-full text-neutral-200 hover:bg-white/10 hover:text-white transition-colors cursor-pointer"
+                aria-expanded={searchOpen}
+                className={`flex shrink-0 items-center justify-center transition-all duration-300 cursor-pointer ${
+                  searchOpen
+                    ? "h-4 w-4 mr-2 text-neutral-400"
+                    : "h-9 w-9 text-neutral-200 hover:text-white"
+                }`}
               >
-                <Search className="h-5 w-5" />
+                <Search className={searchOpen ? "h-4 w-4" : "h-5 w-5"} />
               </button>
-            )}
+              <input
+                ref={searchInputRef}
+                type="search"
+                value={searchQuery}
+                onChange={(e) => setSearchQuery(e.target.value)}
+                onKeyDown={(e) => {
+                  if (e.key === "Escape") {
+                    setSearchQuery("");
+                    setSearchOpen(false);
+                  }
+                }}
+                placeholder="Titles, genres..."
+                aria-label="Search movies and series"
+                aria-hidden={!searchOpen}
+                tabIndex={searchOpen ? 0 : -1}
+                className={`bg-transparent text-sm text-white placeholder-neutral-500 outline-none transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] ${
+                  searchOpen
+                    ? "w-full opacity-100"
+                    : "w-0 opacity-0 pointer-events-none"
+                }`}
+              />
+              <button
+                type="button"
+                onClick={() => {
+                  setSearchQuery("");
+                  setSearchOpen(false);
+                }}
+                aria-label="Close search"
+                aria-hidden={!searchOpen}
+                tabIndex={searchOpen ? 0 : -1}
+                className={`flex shrink-0 items-center justify-center text-neutral-400 hover:text-white transition-all duration-200 cursor-pointer ${
+                  searchOpen
+                    ? "w-4 opacity-100 scale-100 ml-1.5"
+                    : "w-0 opacity-0 scale-75 ml-0 pointer-events-none"
+                }`}
+              >
+                <X className="h-4 w-4" />
+              </button>
+            </div>
           </div>
 
           {/* Active Plan Pill */}

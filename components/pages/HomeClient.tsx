@@ -100,7 +100,7 @@ export function HomeClient() {
 
         <ContentRow
           title="Flipss Originals"
-          subtitle="Exclusive Nusantara cinema & prestige series in 4K HDR"
+          subtitle="Exclusive Nusantara cinema & prestige series in 1080p Full HD"
           items={originals}
           variant="landscape"
         />

@@ -125,9 +125,9 @@ export function PackagesSection({
         <div className="rounded-xl bg-[#141414] border border-white/5 p-5 flex items-start gap-3">
           <Zap className="h-5 w-5 text-[#E50914] shrink-0 mt-0.5" />
           <div>
-            <h3 className="font-bold text-white">Cloudflare R2 Edge</h3>
+            <h3 className="font-bold text-white">Zero-Buffer Streaming</h3>
             <p className="text-xs text-neutral-400 mt-1">
-              Ultra-low latency 4K HDR streaming engineered for Indonesian networks.
+              Ultra-low latency 1080p Full HD streaming engineered for Indonesian networks.
             </p>
           </div>
         </div>

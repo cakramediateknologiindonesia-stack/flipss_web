@@ -43,7 +43,7 @@ export function ContentModal() {
             </Badge>
             <Badge variant="outline">{selectedContent.releaseYear}</Badge>
             <Badge variant="outline">{selectedContent.maturityRating}</Badge>
-            <Badge variant="outline">4K HDR</Badge>
+            <Badge variant="outline">1080p HD</Badge>
           </div>
 
           <h1

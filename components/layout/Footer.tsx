@@ -17,7 +17,7 @@ export function Footer() {
             </Link>
             <p className="text-sm leading-relaxed text-neutral-400">
               Indonesia&apos;s next-generation streaming platform. Watch award-winning
-              Flipss Originals, blockbusters, and 4K HDR cinema anytime, anywhere.
+              Flipss Originals, blockbusters, and 1080p Full HD cinema anytime, anywhere.
             </p>
           </div>
 
@@ -82,7 +82,7 @@ export function Footer() {
               Streaming Tech
             </h3>
             <p className="text-sm leading-relaxed">
-              Powered by Cloudflare R2 edge media delivery, adaptive 4K HDR playback,
+              Powered by high-speed global media delivery, adaptive 1080p Full HD playback,
               and ultra-smooth Lenis navigation.
             </p>
           </div>

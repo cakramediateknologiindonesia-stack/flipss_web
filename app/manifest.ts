@@ -2,10 +2,10 @@ import type { MetadataRoute } from "next";
 
 export default function manifest(): MetadataRoute.Manifest {
   return {
-    name: "Flipss.id — Stream Movies, Originals & 4K Cinema",
+    name: "Flipss.id — Stream Movies, Originals & Full HD Cinema",
     short_name: "Flipss.id",
     description:
-      "Watch Flipss Originals, blockbuster movies, and acclaimed series in 4K HDR. Flexible monthly & yearly streaming packages.",
+      "Watch Flipss Originals, blockbuster movies, and acclaimed series in 1080p Full HD. Flexible monthly & yearly streaming packages.",
     start_url: "/",
     scope: "/",
     display: "standalone",
@@ -39,7 +39,7 @@ export default function manifest(): MetadataRoute.Manifest {
         sizes: "1200x630",
         type: "image/png",
         form_factor: "wide",
-        label: "Flipss.id 4K Streaming",
+        label: "Flipss.id Full HD Streaming",
       },
     ],
   };

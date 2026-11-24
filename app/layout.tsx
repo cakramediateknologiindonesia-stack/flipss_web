@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     "streaming",
     "Indonesian movies",
     "Flipss Originals",
-    "4K HDR streaming",
+    "1080p Full HD streaming",
     "watch movies online",
     "original series",
   ],

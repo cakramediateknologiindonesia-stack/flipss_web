@@ -83,7 +83,7 @@ function WatchInner({ slug, initialContent }: WatchClientProps) {
               </Badge>
               <Badge variant="outline">{content.releaseYear}</Badge>
               <Badge variant="outline">{content.maturityRating}</Badge>
-              <Badge variant="outline">4K HDR</Badge>
+              <Badge variant="outline">1080p HD</Badge>
             </div>
 
             <div className="flex flex-wrap items-center justify-between gap-4">

@@ -1,9 +1,9 @@
 import type { Metadata } from "next";
 
 export const SITE_NAME = "Flipss.id";
-export const DEFAULT_TITLE = "Flipss.id — Stream Movies, Originals & 4K Cinema";
+export const DEFAULT_TITLE = "Flipss.id — Stream Movies, Originals & Full HD Cinema";
 export const DEFAULT_DESCRIPTION =
-  "Watch Flipss Originals, blockbuster movies, and acclaimed series in 4K HDR. Flexible monthly & yearly streaming packages.";
+  "Watch Flipss Originals, blockbuster movies, and acclaimed series in 1080p Full HD. Flexible monthly & yearly streaming packages.";
 export const DEFAULT_OG_IMAGE = "/images/flipss_splash.png";
 export const SQUARE_LOGO_IMAGE = "/images/flipss_logo.png";
 

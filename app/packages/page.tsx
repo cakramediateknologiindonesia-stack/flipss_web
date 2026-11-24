@@ -7,22 +7,22 @@ import { buildPageMetadata } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Membership Packages & Pricing",
   description:
-    "Compare Flipss.id streaming plans — Mobile, Basic, Standard, and Ultra 4K HDR. Flexible monthly or yearly billing with zero ads.",
+    "Compare Flipss.id streaming plans — Mobile, Basic, Standard, and Ultra. Flexible monthly or yearly billing with zero ads.",
   path: "/packages",
 });
 
 const FAQS = [
   {
     q: "What is Flipss.id?",
-    a: "Flipss.id is a modern streaming platform offering award-winning Indonesian Originals, international blockbusters, and 4K HDR series with zero ads.",
+    a: "Flipss.id is a modern streaming platform offering award-winning Indonesian Originals, international blockbusters, and 1080p Full HD series with zero ads.",
   },
   {
     q: "Can I upgrade or cancel my package anytime?",
-    a: "Yes. You can switch between Mobile, Basic, Standard, and Ultra 4K or cancel your subscription at any time with no cancellation fees.",
+    a: "Yes. You can switch between Mobile, Basic, Standard, and Ultra or cancel your subscription at any time with no cancellation fees.",
   },
   {
     q: "How many devices can stream at the same time?",
-    a: "Depending on your plan, you can stream on 1 device (Mobile/Basic), 2 devices simultaneously (Standard), or up to 4 devices in 4K HDR (Ultra 4K).",
+    a: "Depending on your plan, you can stream on 1 device (Mobile/Basic), 2 devices simultaneously (Standard), or up to 4 devices in 1080p Full HD (Ultra).",
   },
   {
     q: "Does Flipss.id support offline downloads?",

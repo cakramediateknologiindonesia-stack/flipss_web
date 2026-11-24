@@ -64,7 +64,7 @@ export function AuthModal() {
           </h1>
           <p className="text-xs text-neutral-400">
             {mode === "login"
-              ? "Welcome back. Stream unlimited cinema in 4K HDR."
+              ? "Welcome back. Stream unlimited cinema in 1080p Full HD."
               : "Join Flipss.id and pick your streaming package."}
           </p>
         </div>

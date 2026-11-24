@@ -60,7 +60,7 @@ export function HeroBanner({ items }: HeroBannerProps) {
             </Badge>
             <Badge variant="outline">{current.releaseYear}</Badge>
             <Badge variant="outline">{current.maturityRating}</Badge>
-            <Badge variant="outline">4K HDR</Badge>
+            <Badge variant="outline">1080p HD</Badge>
           </div>
 
           <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-black tracking-tight text-white leading-[1.04] drop-shadow-[0_4px_24px_rgba(0,0,0,0.85)]">

@@ -6,6 +6,7 @@ import { usePathname } from "next/navigation";
 import { Search, Crown, LogOut, Menu, X, Bookmark, User } from "lucide-react";
 import { useFlips } from "@/components/providers/FlipsContext";
 import { Button } from "@/components/ui/Button";
+import { SearchModal } from "@/components/layout/SearchModal";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
@@ -28,6 +29,7 @@ export function Navbar() {
   } = useFlips();
   const [scrolled, setScrolled] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
+  const [mobileSearchOpen, setMobileSearchOpen] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
@@ -90,9 +92,22 @@ export function Navbar() {
         </div>
 
         {/* Right: Search, Plan Badge, Auth */}
-        <div className="flex items-center gap-3">
-          {/* Expandable Search */}
-          <div className="relative flex items-center">
+        <div className="flex items-center gap-2 sm:gap-3">
+          {/* Mobile: Search Modal Trigger */}
+          <button
+            type="button"
+            onClick={() => {
+              setMobileMenuOpen(false);
+              setMobileSearchOpen(true);
+            }}
+            aria-label="Search catalog"
+            className="flex sm:hidden h-9 w-9 items-center justify-center rounded-full text-neutral-200 hover:bg-white/10 hover:text-white transition-colors cursor-pointer"
+          >
+            <Search className="h-5 w-5" />
+          </button>
+
+          {/* Desktop: Expandable Search */}
+          <div className="relative hidden sm:flex items-center">
             {searchOpen ? (
               <div className="flex items-center rounded-full bg-black/80 border border-white/25 px-3 py-1.5 focus-within:border-[#E50914]">
                 <Search className="h-4 w-4 text-neutral-400 mr-2 shrink-0" />
@@ -103,7 +118,7 @@ export function Navbar() {
                   placeholder="Titles, genres..."
                   aria-label="Search movies and series"
                   autoFocus
-                  className="w-36 sm:w-52 bg-transparent text-sm text-white placeholder-neutral-500 outline-none"
+                  className="w-52 bg-transparent text-sm text-white placeholder-neutral-500 outline-none"
                 />
                 <button
                   type="button"
@@ -195,6 +210,11 @@ export function Navbar() {
           ))}
         </div>
       )}
+      {/* Mobile Search Modal */}
+      <SearchModal
+        open={mobileSearchOpen}
+        onClose={() => setMobileSearchOpen(false)}
+      />
     </header>
   );
 }

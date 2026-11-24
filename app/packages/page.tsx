@@ -1,5 +1,15 @@
+import type { Metadata } from "next";
 import React from "react";
 import { PackagesSection } from "@/components/packages/PackagesSection";
+import { JsonLd } from "@/components/seo/JsonLd";
+import { buildPageMetadata } from "@/lib/seo";
+
+export const metadata: Metadata = buildPageMetadata({
+  title: "Membership Packages & Pricing",
+  description:
+    "Compare Flipss.id streaming plans — Mobile, Basic, Standard, and Ultra 4K HDR. Flexible monthly or yearly billing with zero ads.",
+  path: "/packages",
+});
 
 const FAQS = [
   {
@@ -21,15 +31,29 @@ const FAQS = [
 ];
 
 export default function PackagesPage() {
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: FAQS.map((item) => ({
+      "@type": "Question",
+      name: item.q,
+      acceptedAnswer: {
+        "@type": "Answer",
+        text: item.a,
+      },
+    })),
+  };
+
   return (
     <div className="pt-24 pb-16">
+      <JsonLd data={faqSchema} />
       {/* Ambient top glow */}
       <div className="relative overflow-hidden">
         <div
           aria-hidden="true"
           className="pointer-events-none absolute -top-40 left-1/2 -translate-x-1/2 h-96 w-[640px] rounded-full bg-[#E50914]/20 blur-[140px]"
         />
-        <PackagesSection />
+        <PackagesSection asH1 />
       </div>
 
       {/* Native <details> FAQ Accordion */}

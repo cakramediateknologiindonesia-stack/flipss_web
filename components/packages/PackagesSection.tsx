@@ -6,7 +6,14 @@ import { useFlips } from "@/components/providers/FlipsContext";
 import { StreamingPackage } from "@/lib/types";
 import { PackageCard } from "./PackageCard";
 
-export function PackagesSection({ compact = false }: { compact?: boolean }) {
+export function PackagesSection({
+  compact = false,
+  asH1 = false,
+}: {
+  compact?: boolean;
+  asH1?: boolean;
+}) {
+  const HeadingTag = asH1 ? "h1" : "h2";
   const { packages, activeSubscription, selectPackage } = useFlips();
   const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("monthly");
   const [busyId, setBusyId] = useState<string | null>(null);
@@ -36,12 +43,12 @@ export function PackagesSection({ compact = false }: { compact?: boolean }) {
         <span className="inline-block rounded-full bg-[#E50914]/15 border border-[#E50914]/40 px-3.5 py-1 text-xs font-bold uppercase tracking-widest text-[#E50914]">
           Flexible Membership Packages
         </span>
-        <h2
+        <HeadingTag
           id="packages-heading"
           className="text-3xl sm:text-4xl md:text-5xl font-black tracking-tight text-white"
         >
           Choose the plan that fits your screen
-        </h2>
+        </HeadingTag>
         <p className="text-sm sm:text-base text-neutral-400">
           No hidden fees. Cancel or switch packages anytime. Every plan includes
           unlimited Flipss Originals and zero ads.

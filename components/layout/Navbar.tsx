@@ -40,14 +40,19 @@ export function Navbar() {
   }, []);
 
   return (
-    <header
-      className={`fixed top-0 inset-x-0 z-40 transition-all duration-300 ${
-        scrolled
-          ? "bg-[#0a0a0a]/92 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.6)]"
-          : "bg-gradient-to-b from-black/90 via-black/45 to-transparent"
-      }`}
-    >
-      <div className="mx-auto flex h-16 md:h-20 max-w-[1440px] items-center justify-between px-4 sm:px-8 lg:px-12">
+    <header className="fixed top-0 inset-x-0 z-40">
+      {/* Base top gradient layer */}
+      <div
+        aria-hidden="true"
+        className="pointer-events-none absolute inset-0 bg-gradient-to-b from-black/90 via-black/45 to-transparent"
+      />
+      {/* Scrolled glassmorphic layer (compositor-accelerated opacity transition) */}
+      <div
+        aria-hidden="true"
+        data-scrolled={scrolled}
+        className="flips-navbar-bg pointer-events-none absolute inset-0 bg-[#0a0a0a]/92 backdrop-blur-xl border-b border-white/10 shadow-[0_8px_32px_rgba(0,0,0,0.6)]"
+      />
+      <div className="relative mx-auto flex h-16 md:h-20 max-w-[1440px] items-center justify-between px-4 sm:px-8 lg:px-12">
         {/* Left: Brand + Nav */}
         <div className="flex items-center gap-8">
           <Link
@@ -191,7 +196,7 @@ export function Navbar() {
 
       {/* Mobile Nav Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden bg-[#0e0e0e] border-b border-white/10 px-6 py-4 space-y-3">
+        <div className="relative md:hidden bg-[#0e0e0e] border-b border-white/10 px-6 py-4 space-y-3">
           {NAV_LINKS.map((item) => (
             <Link
               key={item.href}

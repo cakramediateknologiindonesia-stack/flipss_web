@@ -128,3 +128,40 @@ dialog.flips-dialog::backdrop {
   color: #0a0a0a;
   text-shadow: 0 10px 30px rgba(0, 0, 0, 0.9);
 }
+
+/* Smooth scroll-driven navbar background transition */
+@keyframes flips-navbar-reveal {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.flips-navbar-bg {
+  opacity: 0;
+  transition: opacity 450ms cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity;
+}
+
+.flips-navbar-bg[data-scrolled="true"] {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .flips-navbar-bg {
+    transition: none;
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  @supports ((animation-timeline: scroll()) and (animation-range: 0% 100%)) {
+    .flips-navbar-bg {
+      transition: none;
+      animation: flips-navbar-reveal linear both;
+      animation-timeline: scroll(block root);
+      animation-range: 0px 80px;
+    }
+  }
+}

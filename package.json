@@ -1,6 +1,6 @@
 {
   "name": "flips_web",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
@@ -9,6 +9,8 @@
     "lint": "eslint"
   },
   "dependencies": {
+    "lenis": "^1.3.28",
+    "lucide-react": "^1.79.0",
     "next": "16.4.6",
     "react": "19.3.0",
     "react-dom": "19.3.0"

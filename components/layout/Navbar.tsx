@@ -52,15 +52,14 @@ export function Navbar() {
         <div className="flex items-center gap-8">
           <Link
             href="/"
-            className="group flex items-center gap-1.5 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E50914] rounded"
+            className="group flex items-center focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#E50914] rounded"
             aria-label="Flipss.id Home"
           >
-            <span className="inline-flex h-8 w-8 items-center justify-center rounded-md bg-[#E50914] font-black text-white text-lg tracking-tighter shadow-[0_0_20px_rgba(229,9,20,0.55)] group-hover:scale-105 transition-transform">
-              F
-            </span>
-            <span className="text-xl md:text-2xl font-black tracking-tight text-white">
-              FLIPSS<span className="text-[#E50914]">.ID</span>
-            </span>
+            <img
+              src="/images/flipss_full_logo.png"
+              alt="Flipss.id"
+              className="h-9 sm:h-11 w-auto object-contain group-hover:scale-105 transition-transform"
+            />
           </Link>
 
           <nav className="hidden md:flex items-center gap-6" aria-label="Primary navigation">

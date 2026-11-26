@@ -4,6 +4,7 @@ import { LenisProvider } from "@/components/providers/LenisProvider";
 import { FlipsProvider } from "@/components/providers/FlipsContext";
 import { ServiceWorkerRegistrar } from "@/components/providers/ServiceWorkerRegistrar";
 import { Navbar } from "@/components/layout/Navbar";
+import { SplashScreen } from "@/components/layout/SplashScreen";
 import { Footer } from "@/components/layout/Footer";
 import { ContentModal } from "@/components/streaming/ContentModal";
 import { AuthModal } from "@/components/auth/AuthModal";
@@ -122,6 +123,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="dark h-full antialiased">
       <body className="min-h-full flex flex-col bg-[#0a0a0a] text-[#f5f5f5] selection:bg-[#E50914] selection:text-white">
+        <SplashScreen />
         <JsonLd data={organizationSchema} />
         <JsonLd data={websiteSchema} />
         <ServiceWorkerRegistrar />

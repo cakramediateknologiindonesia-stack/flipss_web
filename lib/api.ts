@@ -1,7 +1,7 @@
 import { FALLBACK_CONTENTS, FALLBACK_PACKAGES } from "./catalog";
 import { MediaContent, StreamingPackage, UserProfile, UserSubscription } from "./types";
 
-const API_BASE = process.env.NEXT_PUBLIC_API_URL || "http://localhost:5000/api";
+const API_BASE = process.env.NEXT_PUBLIC_API_URL || "https://api.flipss.id";
 
 async function apiFetch<T>(
   endpoint: string,

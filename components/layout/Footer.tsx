@@ -66,7 +66,7 @@ export function Footer() {
               </li>
               <li>
                 <a
-                  href="http://localhost:5000/api-docs"
+                  href="https://api.flipss.id/api-docs"
                   target="_blank"
                   rel="noreferrer"
                   className="hover:text-white transition-colors"
